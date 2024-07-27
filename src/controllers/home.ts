@@ -7,11 +7,7 @@ export const router = Router();
 
 router.get("/", async (req: Request, res: Response) => {
   try {
-    const users = await prisma.user.findMany({
-      where: {
-        id: "123",
-      },
-    });
+    const users = await prisma.user.findMany();
     res.json(users);
   } catch (e) {
     res.send(":(");
