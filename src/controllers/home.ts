@@ -1,15 +1,7 @@
-import { Router } from "express";
-import { Request, Response } from "express";
-import { prisma } from "../repositories/prisma/prisma";
-import { logger } from "../repositories/winston/logger";
+import { Router, Request, Response  } from "express";
 
-export const router = Router();
+export const homeRouter = Router();
 
-router.get("/", async (req: Request, res: Response) => {
-  try {
-    const users = await prisma.user.findMany();
-    res.json(users);
-  } catch (e) {
-    res.send(":(");
-  }
+homeRouter.get("/", async (req: Request, res: Response) => {
+  res.send("Hello world")
 });
